@@ -35,6 +35,8 @@ View(data)
 
 The result of run_analysis.R is a 180 x 68 table, containing 2 descriptive variables (subject and actname), 66 averaged measure variables, and 180 subject/activity combinations.
 
+The measure variables are normalized on a scale of -1 to 1, thus they do not have any units. [3]
+
 ## Steps to Replicate Data Assembly and Transformation
 1. Downlaod data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and place the unzipped folder in working directory.
 2. Run the run_analysis.R script.
@@ -47,3 +49,5 @@ Data set URL: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI
 File: features_info.txt
 
 [2] https://class.coursera.org/getdata-016/forum/thread?thread_id=50#post-110
+
+[3] https://class.coursera.org/getdata-016/forum/thread?thread_id=50#comment-484
