@@ -1,4 +1,4 @@
-# Read me - averages.txt
+# Read me - run_analysis.R
 ### Getting and Cleaning Data Course
 
 ## Overview/Project Summary
