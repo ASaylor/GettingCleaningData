@@ -1,0 +1,49 @@
+# Code Book
+
+## Overview/Project Summary
+This project takes data obtained from individuals in the 19-48 age range performing six activities while wearing a Samsung Galaxy S II smartphone and transforms the data by assembling a complete data set and summarizing it by the average across each subject and each activity.
+
+## Variable Descriptions
+* subject: The number of the subject in the experiment. Total of 30 subjects numbered 1-30.
+* actname: The activity being performed by the subject - 6 options: laying, sitting, standing, walking, walking downstairs, and walking upstairs.
+* All other variable names start with AVG, indicating that they are an average of the measure that follows.
+* The character following AVG is either a t or an f. "t" refers to a measurement of time; "f" refers to a measurement of frequency.
+* The following word is either "body" or "gravity", indicating either a body signal or gravity signal.
+* Next is Acc or Gyro, indicating acceleration or angular velocity.
+* Following in some cases is Mag or Jerk, indicating magnitude or jerk measurement.
+* All names contain std (standard deviation) or mean to indicate which is being calculated. The data presented is an average of standard deviation or an average of the mean for the given variable.
+* Many names end with X, Y, or Z, indicating from which axis the signal came.
+* Description of equipment involved from the original study: "The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). [...] Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean" [1]
+
+
+## Data Description
+
+The data that results from run_analysis.R is represented in the text file averages.txt, which can be read into RStudio using the following, assuming averages.txt resides in the working directory [2]:
+
+data <- read.table("./averages.txt", header = TRUE)
+View(data)
+
+The result of run_analysis.R is a 180 x 68 table, containing 2 descriptive variables (subject and actname), 66 averaged measure variables, and 180 subject/activity combinations.
+
+## Steps to Replicate Data Assembly and Transformation
+1. Downlaod data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and place the unzipped folder in working directory.
+2. Run the run_analysis.R script.
+3. Data can be viewed in RStudio using the instructions above.
+
+
+## Citations
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012. 
+Data set URL: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+File: features_info.txt
+
+[2] https://class.coursera.org/getdata-016/forum/thread?thread_id=50#post-110
